@@ -1,15 +1,6 @@
 import GenerateCharts from "./Charts/GenerateCharts.js"
 
-let button = document.querySelector("#buttonOnOff")
 
-button.addEventListener("click", function () {
-    let buttonContent = document.querySelector("#buttonOnOffName")
-    if (buttonContent.textContent === "ON") {
-        buttonContent.textContent = "OFF"
-    } else {
-        buttonContent.textContent = "ON"
-    }
-})
 
 const mockDataWeek = [
     { day: "seg", tot: 20 },
