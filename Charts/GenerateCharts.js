@@ -1,9 +1,9 @@
-import BarChartByWeek from "./BarsCharts/BarChartByWeek.js" 
-import BarChartByMonth from "./BarsCharts/BarChartByMonth.js"
+import BarChartByDay from "./BarChart/BarChartByDay.js" 
+import LineChartByWeek from "./LineChart/LineChartByWeek.js"
 
-function GenerateCharts(dataWeek, dataMonth) {
-    BarChartByWeek(dataWeek)
-    BarChartByMonth(dataMonth)
+function GenerateCharts(dataDay, dataWeek) {
+    BarChartByDay(dataDay)
+    LineChartByWeek(dataWeek)
 }
 
 export default GenerateCharts
