@@ -22,14 +22,14 @@ const database = getDatabase(app)
 let updateData = [];
 
 let data = {
-    "27-4": [
+    "27-4-2023": [
         { day: 27, hour: 18, minute: 49, month: 4, second: 30, year: 2023 },
         { day: 27, hour: 18, minute: 49, month: 4, second: 30, year: 2023 }
     ]
 };
 
 let totalOfEntrysByDate = {
-    "27-4": 2
+    "27-4-2023": 2
 };
 
 function getData() {
@@ -37,7 +37,7 @@ function getData() {
     onValue(reference, (snapshot) => {
         if (snapshot.exists()) {
             updateData = Object.values(snapshot.val());
-            const date = updateData.at(-1).day + "-" + updateData.at(-1).month;
+            const date = updateData.at(-1).day + "-" + updateData.at(-1).month + "-" + updateData.at(-1).year;
             if (data.hasOwnProperty(date)) {
                 data[date].push(updateData.at(-1));
                 totalOfEntrysByDate[date]++;
