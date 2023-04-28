@@ -1,9 +1,11 @@
 import BarChartByDay from "./BarChart/BarChartByDay.js" 
 import LineChartByWeek from "./LineChart/LineChartByWeek.js"
 
-function GenerateCharts(dataDay, dataWeek) {
+function GenerateCharts(dataDay, dataDayHour) {
+
     BarChartByDay(dataDay)
-    LineChartByWeek(dataWeek)
+    LineChartByWeek(dataDayHour)
+
 }
 
 export default GenerateCharts
