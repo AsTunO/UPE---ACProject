@@ -16,8 +16,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig)
 const database = getDatabase(app)
 
-function getData() {
-
     let updateData = [];
 
     let data = {
@@ -30,6 +28,8 @@ function getData() {
     let totalOfEntrysByDate = {
         "27-4-2023": 2
     };
+
+function getData() {
 
     const reference = ref(database, 'teste/dado');
     onValue(reference, (snapshot) => {
