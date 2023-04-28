@@ -15,13 +15,14 @@ function BarChartByDay(data) {
 
     var x = d3.scaleBand()
         .range([0, width])
-        .domain(["seg", "ter", "qua", "qui", "sex", "sab", "dom"])
+        .domain(["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"])
         .padding(0.2);
     svg.append("g")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x))
         .selectAll("text")
-        .style("text-anchor", "end");
+        .attr("transform", "rotate(45)")
+        .style("text-anchor", "start");
 
     // Add Y axis
     var y = d3.scaleLinear()
@@ -29,17 +30,20 @@ function BarChartByDay(data) {
         .range([height, 0]);
     svg.append("g")
         .call(d3.axisLeft(y));
-    
+
     // Bars
     svg.selectAll("mybar")
         .data(data)
         .join("rect")
         .attr("x", d => x(d.day))
-        .attr("y", d => y(d.tot))
+        .attr("y", height)
         .attr("width", x.bandwidth())
-        .attr("height", d => height - y(d.tot))
+        .attr("height", 0)
         .attr("fill", "#69b3a2")
-
+        .transition()
+        .duration(1000)
+        .attr("y", d => y(d.tot))
+        .attr("height", d => height - y(d.tot));
 }
 
-export default BarChartByDay
+export default BarChartByDay;

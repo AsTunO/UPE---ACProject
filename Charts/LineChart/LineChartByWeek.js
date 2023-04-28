@@ -14,7 +14,7 @@ function LineChartByWeek(data) {
 
     // Draw X domain
     const x = d3.scaleBand()
-        .domain(["seg", "ter", "qua", "qui", "sex"])
+        .domain(["Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira"])
         .range([0, width])
         .padding(1);
     svg.append("g")
@@ -37,7 +37,7 @@ function LineChartByWeek(data) {
         .attr("d", d3.line()
             .x(d => x(d.day))
             .y(d => y(d.tot)))
-            
+
     // Draw Dots
     svg.append("g")
         .selectAll("dot")
@@ -46,7 +46,7 @@ function LineChartByWeek(data) {
         .attr("cx", d => x(d.day))
         .attr("cy", d => y(d.tot))
         .attr("r", 5)
-        .attr("fill", "#69b3a2") 
+        .attr("fill", "#69b3a2")
 }
 
 export default LineChartByWeek
